@@ -1,0 +1,17 @@
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Lab01 {
+
+	public static void main(String args[]){
+		JFrame frame = new JFrame("HelloWorldSwing!");
+		frame.setSize(370,220);
+		frame.setVisible(true);
+		
+		JPanel mainPanel = new JPanel();
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		mainPanel.add(new JLabel("Text: "));
+	}
+}

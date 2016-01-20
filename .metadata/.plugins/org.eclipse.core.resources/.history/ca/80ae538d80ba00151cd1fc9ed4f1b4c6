@@ -1,0 +1,19 @@
+package swing;
+
+import java.util.Scanner;
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		Scanner input = new Scanner(System.in);
+		tuna newOb = new tuna("Alice");
+		System.out.println("Enter name of girl");
+		String temp = input.nextLine();
+		newOb.setName(temp);
+		newOb.saying();
+		
+	}
+	
+	
+}

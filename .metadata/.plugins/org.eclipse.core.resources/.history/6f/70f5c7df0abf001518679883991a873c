@@ -1,0 +1,92 @@
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class Lab01 {
+	
+	private static JLabel bPressed;
+	private static String text;
+	private static JTextField t;
+
+	public static void main(String args[]){
+		JFrame frame = new JFrame("HelloWorldSwing!");
+		frame.setSize(new Dimension(370,220));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel mainPanel = new JPanel();
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		frame.setContentPane(mainPanel);
+		
+		
+		JPanel p = new JPanel();
+		JLabel l = new JLabel("Text:    ");	
+		t = new JTextField(20);
+		text = t.getText();
+		String[] fontSize = {"Tiny", "Small", "Medium", "Large"};
+		JComboBox<String> combo = new JComboBox<>(fontSize);
+		p.add(l);
+		p.add(t);
+		p.add(combo);
+		mainPanel.add(p);
+		
+		
+		JPanel p2 =  new JPanel();
+		JRadioButton b1 = new JRadioButton("Plain");
+		JRadioButton b2 = new JRadioButton("Bold");
+		JRadioButton b3 = new JRadioButton("Italic");
+		JRadioButton b4 = new JRadioButton("Bold Italic");
+		p2.add(b1);
+		p2.add(b2);
+		p2.add(b3);
+		p2.add(b4);
+		p2.setLayout(new GridLayout(5,1));
+		
+		JPanel P2 = new JPanel();
+		bPressed = new JLabel(text);
+		P2.add(bPressed);
+		P2.setLayout(new GridLayout(1,1));
+		
+		JPanel p2P2 = new JPanel();
+		p2P2.add(p2);
+		p2P2.add(P2);
+		p2P2.setLayout(new BoxLayout(p2P2, BoxLayout.X_AXIS));
+		mainPanel.add(p2P2);
+		
+		
+	
+		JPanel p3 = new JPanel();
+		JButton bu1 = new JButton("Show!");
+		bu1.addActionListener(new ActionListener(){
+			
+			@Override
+			public void actionPerformed(ActionEvent e){
+				text = t.getText();
+				bPressed.setText(text);
+				//System.out.println(text);
+			}
+		});
+		
+		
+		
+		JButton bu2 = new JButton("Exit");
+		
+		p3.add(bu1);
+		p3.add(bu2);
+		mainPanel.add(p3);
+		mainPanel.setLayout(new GridLayout(3, 1));
+		
+		
+		
+		//frame.pack();
+		frame.setVisible(true);
+	}
+}

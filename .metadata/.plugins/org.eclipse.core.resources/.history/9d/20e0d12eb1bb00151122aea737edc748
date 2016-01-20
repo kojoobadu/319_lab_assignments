@@ -1,0 +1,21 @@
+package SwingGUI;
+
+import javax.swing.JFrame;
+
+public class SwingGui {
+	
+	public static void main(String args[]){
+		//Creating a JFrame
+		JFrame myFirstJFrame = createAndSetupFrame();
+		myFirstJFrame.setVisible(true);
+		
+		
+	}
+	
+	public static JFrame createAndSetupFrame(){
+		JFrame f = new JFrame("My First JFrame");
+		return f;
+		
+	}
+
+}

@@ -1,0 +1,35 @@
+import java.awt.GridBagLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Lab01 {
+
+	public static void main(String args[]){
+		JFrame frame = new JFrame("HelloWorldSwing!");
+		frame.setSize(370,220);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel mainPanel = new JPanel();
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		frame.setContentPane(mainPanel);
+		
+		JPanel p = new JPanel();
+		JLabel l = new JLabel("Text");
+		p.add(l);
+		JTextField t = new JTextField("Hello World");
+		p.add(t);
+		mainPanel.add(p);
+		
+		
+		
+		
+		
+		
+		
+		
+		frame.setVisible(true);
+	}
+}

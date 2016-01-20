@@ -1,0 +1,12 @@
+import java.awt.Frame;
+
+import javax.swing.JFrame;
+
+public class Lab01 {
+
+	public static void main(String args[]){
+		JFrame frame = new JFrame("HelloWorldSwing!");
+		frame.setSize(370,220);
+		frame.setVisible(true);
+	}
+}

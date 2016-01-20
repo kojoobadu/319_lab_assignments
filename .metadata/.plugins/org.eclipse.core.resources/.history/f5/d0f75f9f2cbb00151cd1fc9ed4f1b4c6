@@ -1,0 +1,28 @@
+package swing;
+
+import java.util.Scanner;
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		Scanner input = new Scanner(System.in);
+		int grade = 0;
+		int total = 0;
+		int average = 0;
+		int counter = 0;
+ 		System.out.println("Enter grade");
+		while(counter < 10){
+			grade = input.nextInt();
+			total += grade;
+			counter++;
+			System.out.println("Enter grade");
+		}
+		average = total / 10;
+		
+		System.out.println("Your average grade is "+average);
+		
+	}
+	
+	
+}
