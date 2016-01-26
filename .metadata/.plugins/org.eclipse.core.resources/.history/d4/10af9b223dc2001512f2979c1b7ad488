@@ -1,0 +1,31 @@
+package swing;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class examSwing extends JFrame {
+	
+	private JTextField item1;
+	private JTextField item2;
+	private JTextField item3;
+	
+	private JLabel label;
+	
+	private JPasswordField passwordField;
+	
+	public examSwing (){
+		super("The title bar");
+		setLayout(new FlowLayout());
+		
+		label = new JLabel("This is a sentence");
+		add(label);
+		setSize(400,400);
+		setVisible(true);
+	//	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+}

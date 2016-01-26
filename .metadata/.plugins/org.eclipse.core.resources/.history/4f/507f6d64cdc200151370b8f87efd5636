@@ -1,0 +1,18 @@
+package swing;
+
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		InheritanceFood kojo = new InheritanceFood();
+		InheritanceFood chick = new chicken();
+		
+		fatty bucky = new fatty();
+		bucky.digest(kojo);
+		bucky.digest(chick);
+		
+	
+	}
+}

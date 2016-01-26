@@ -1,0 +1,13 @@
+package swing;
+
+import java.util.EnumSet;
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		examSwing tom = new examSwing();
+	
+	}
+}

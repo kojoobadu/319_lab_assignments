@@ -1,0 +1,57 @@
+package cs319;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
+import javax.swing.JLabel;
+
+public class Lab2Swing extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Lab2Swing frame = new Lab2Swing();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Lab2Swing() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		setTitle("Tabbed Swing Application");
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(0, 232, 434, 29);
+		contentPane.add(tabbedPane);
+		
+		JLabel lblNewLabel = new JLabel();
+		tabbedPane.addTab("List", null, lblNewLabel, null);
+		
+		JLabel lblNewLabel_1 = new JLabel();
+		tabbedPane.addTab("Tree", null, lblNewLabel_1, null);
+		
+		JLabel label = new JLabel();
+		tabbedPane.addTab("Table", null, label, null);
+	}
+}

@@ -1,0 +1,54 @@
+package cs319;
+
+import java.io.File;
+import java.util.Scanner;
+
+public class DataModel extends javax.swing.AbstractListModel {
+	
+	private Scanner scan;
+	private String[] companiesArray;
+	
+	
+	public void openFile(){
+		try{
+			File companies = new File("companies.txt");
+			scan = new Scanner(companies);
+		}
+		catch(Exception e){
+			System.out.println("File not found!");
+		}
+	}
+	
+	public void readFile(){
+		int i = 0;
+		while(scan.hasNext()){
+			companiesArray[i] = scan.next();
+			i++;
+			System.out.println(companiesArray[i]);
+		}
+	}
+	
+	public void closeFile(){
+		scan.close();
+	}
+
+	@Override
+	public Object getElementAt(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public static void main(String args[]){
+		DataModel r = new DataModel();
+		r.readFile();
+		r.openFile();
+		r.closeFile();
+	}
+
+}

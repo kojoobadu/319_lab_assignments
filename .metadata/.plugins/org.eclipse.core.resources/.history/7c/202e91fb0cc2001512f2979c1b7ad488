@@ -1,0 +1,16 @@
+package swing;
+
+import java.util.Random;
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		time instance = new time();
+		instance.toMilitary();
+		
+	}
+	
+	
+}

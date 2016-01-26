@@ -1,0 +1,158 @@
+	package cs319;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import javax.swing.AbstractListModel;
+
+public class DataModel extends AbstractListModel {
+	
+	private ArrayList<String> companiesList;
+	private static String fileName = "companies.txt";
+	
+	
+	public DataModel(){
+		companiesList = getCompanies();
+	}
+	
+
+	public String getElementAt(int index) {
+		return companiesList.get(index);
+	}
+
+	public int getSize() {
+		return companiesList.size();
+	}
+	
+	
+	// Method to get list of companies from companies.txt
+	public ArrayList<String> getCompanies(){
+		File file = new File(fileName);
+		ArrayList<String> companies = new ArrayList<String>();
+		try {
+			Scanner scan = new Scanner(file);
+			int i = 0;
+			while(scan.hasNext()){
+				companies.add(scan.next());
+				Iterator<String> itr = companies.iterator();
+				System.out.println(itr.next());
+				i++;
+			}
+		} 
+		catch(Exception e){
+			System.out.println("file not found");
+		}
+		return companies;
+	}
+	
+	//Add a new company to the arraylist and to the companies.txt file
+	public void addElement(String newCompany){
+		try{
+			FileWriter file = new FileWriter(fileName,true);
+			BufferedWriter buffer = new BufferedWriter(file);
+			PrintWriter out = new PrintWriter(buffer);
+			out.println("\n"+newCompany);
+			out.close();
+		}
+		catch(Exception e){
+			System.out.println("File not found");
+		}
+	}
+	
+//	public void removeElement(String delCompany){
+//		
+//		try{
+//			File file = new File(fileName);
+//			FileReader readFile = new FileReader(file);
+//			BufferedReader read = new BufferedReader(readFile);
+//			File newFile = new File("newCompany.txt");
+//			FileWriter writeFile = new FileWriter(newFile);
+//			BufferedWriter write = new BufferedWriter(writeFile);
+//			
+//			String currentLine;
+//			
+//			
+//			while((currentLine = read.readLine()) != null){
+//				String trimmedLine = currentLine.trim();
+//				if(!trimmedLine.equals(delCompany)){
+//				
+//					write.write(currentLine);
+//					write.newLine();
+//				}
+//			}
+//			
+//			readFile.close();
+////			writeFile.close();
+//			read.close();
+//			write.close();
+////			delFile(file);
+//			
+//		
+//		}
+//		catch(Exception e){
+//			System.out.println("File Not Found");
+//		}
+//		
+//	}
+	
+	public void delFile(File file){
+		file.setWritable(true);
+		if(file.delete()){
+			System.out.println(file.getName() + " deleted successfully.");
+		}
+		else{
+			System.out.println("Delete Operation failed");
+		}
+	}
+	
+	public void renameFile(File newName, File oldName){
+//		oldFile.setWritable(true);
+//		newFile.setWritable(true);
+		if(oldName.renameTo(newName)){
+			System.out.println("Successfully renamed "+ oldName.getName() + " to "+ newName.getName());
+		}
+	}
+	
+	public void removeElement(String delCompany){
+		try{
+			File inFile = new File(fileName);
+			if(!inFile.isFile()){
+				System.out.println("File path is wrong");
+			}
+			
+			File outFile = new File("newCompany.txt");
+			FileReader fr = new FileReader(fileName);
+			FileWriter fw = new FileWriter(outFile);
+			BufferedReader br = new BufferedReader(fr);
+			PrintWriter pw = new PrintWriter(fw);
+			
+			String line = null;
+			
+			while((line = br.readLine()) != null){
+				if(!line.trim().equals(delCompany)){
+					pw.println(line);
+				}
+			}
+			
+			pw.close();
+			br.close();
+			
+			delFile(inFile);
+			renameFile(inFile, outFile);
+			
+			
+		}catch(Exception e){
+			System.out.println("File Not Found");
+		}
+	}
+	
+	
+	
+}

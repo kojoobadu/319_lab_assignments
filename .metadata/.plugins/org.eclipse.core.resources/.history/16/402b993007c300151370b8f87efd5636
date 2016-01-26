@@ -1,0 +1,81 @@
+package cs319;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class DataModel extends javax.swing.AbstractListModel {
+	
+	
+	public ArrayList<String> getCompanies(){
+		File file = new File("companies.txt");
+		ArrayList<String> companies = new ArrayList<String>();
+		try {
+			Scanner scan = new Scanner(file);
+			int i = 0;
+			while(scan.hasNext()){
+				companies.add(scan.next());
+				Iterator<String> itr = companies.iterator();
+				System.out.println(itr.next());
+				i++;
+			}
+		} 
+		catch(Exception e){
+			System.out.println("file not found");
+		}
+		return companies;
+	}
+
+	@Override
+	public Object getElementAt(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	static JPanel createPanel() {
+		DataModel r = new DataModel();
+		JPanel panel = new JPanel();
+		
+		//Create a JList
+		ArrayList<String> companies = r.getCompanies();
+		JList myList = new JList(companies.toArray());
+				
+		//Make Scrollable
+		JScrollPane scrollPane = new JScrollPane(myList);
+		panel.add(scrollPane);
+		
+		return panel;
+	}
+	
+	public static void main(String args[]){
+		JFrame frame = new JFrame("Simple List Example");
+		frame.setSize(400, 400);
+		frame.getContentPane().a
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		DataModel r = new DataModel();
+		
+		JPanel list = new JPanel();
+		
+		//Create a JList
+		ArrayList<String> companies = r.getCompanies();
+		JList myList = new JList(companies.toArray());
+		
+		//Make Scrollable
+		JScrollPane scrollPane = new JScrollPane(myList);
+		
+	}
+
+}

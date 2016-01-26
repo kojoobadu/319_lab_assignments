@@ -1,0 +1,37 @@
+package swing;
+
+import java.awt.FlowLayout;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Gui extends JFrame {
+
+	
+	private JButton firstB;
+	private JButton secondB;
+	
+	
+	public Gui(){
+		super ("The title");
+		setLayout(new FlowLayout());
+		
+		firstB = new JButton("reg Button");
+		add(firstB);
+		
+		Icon b = new ImageIcon(getClass().getResource("icona.png"));
+		Icon be = new ImageIcon(getClass().getResource("icono.png"));
+		
+		secondB = new JButton("Custom",b);
+		secondB.setRolloverIcon(be);
+		add(secondB);
+		
+		setSize(400,400);
+		setVisible(true);
+		
+		
+		
+	}
+}

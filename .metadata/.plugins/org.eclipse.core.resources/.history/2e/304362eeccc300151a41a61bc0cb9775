@@ -1,0 +1,17 @@
+package cs319;
+
+import java.io.File;
+
+public class runner {
+			
+
+			  public static void main(String[] args){
+			  
+				  DataModel instance = new DataModel();
+				  
+				// instance.addElement("TacoCorp");
+				 instance.removeElement("TacoCorp");
+				  
+			  }
+	
+}

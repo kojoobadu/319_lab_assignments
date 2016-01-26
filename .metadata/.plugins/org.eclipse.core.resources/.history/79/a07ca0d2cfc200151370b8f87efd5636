@@ -1,0 +1,16 @@
+package swing;
+
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		foodlist fo = new foodlist();
+		cheezit c = new cheezit();
+		chicken chick = new chicken();
+		
+		fo.addFood(c);
+		fo.addFood(chick);
+	}
+}

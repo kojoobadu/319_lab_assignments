@@ -1,0 +1,28 @@
+package cs319;
+
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
+
+public class runner {
+	
+	public static void main(String args[]){
+		
+		JFrame frame = new JFrame("Test JList");
+		frame.setSize(400,400);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel mainPanel = new JPanel();
+		frame.setContentPane(mainPanel);
+		
+		DataModel model = new DataModel();
+		JList list = new JList(model);
+		
+		mainPanel.add(list);
+		
+		frame.setVisible(true);
+		
+		
+		
+	}
+	
+}

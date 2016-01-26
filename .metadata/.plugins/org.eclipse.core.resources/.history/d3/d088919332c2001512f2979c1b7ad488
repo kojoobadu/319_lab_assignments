@@ -1,0 +1,17 @@
+package swing;
+
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		time instance = new time();
+		System.out.println(instance.toMilitary());
+		instance.setTime(24, 27, 6);
+		System.out.println(instance.regularTime());
+		
+	}
+	
+	
+}

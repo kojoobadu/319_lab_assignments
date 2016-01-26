@@ -1,0 +1,17 @@
+package swing;
+
+import java.util.EnumSet;
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		InheritanceFood kojo = new InheritanceFood();
+		
+		fatty bucky = new fatty();
+		bucky.digest(kojo);
+		
+	
+	}
+}

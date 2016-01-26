@@ -1,0 +1,56 @@
+package swing;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Gui extends JFrame {
+
+	
+	private JButton firstB;
+	private JButton secondB;
+	private JLabel show;
+	
+	
+	public Gui(){
+		super ("The title");
+		setLayout(new FlowLayout());
+		
+		firstB = new JButton("reg Button");
+		add(firstB);
+		
+		
+		secondB = new JButton("Custom");
+		add(secondB);
+		
+		show = new JLabel();
+		add(show);
+		
+		
+		theHandler handle = new theHandler();
+		firstB.addActionListener(handle);
+		secondB.addActionListener(handle);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			
+		setSize(400,400);
+		setVisible(true);
+		
+	}
+	
+	private class theHandler implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+			show.setText(arg0.getActionCommand());
+			
+		}
+		
+	}
+}

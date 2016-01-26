@@ -1,0 +1,160 @@
+package cs319;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+public class Lab2Swing extends JFrame {
+
+	private JPanel contentPane;
+	private JList<String> list;
+	private DataModel companies;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Lab2Swing frame = new Lab2Swing();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Lab2Swing() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(0, 0, 424, 261);
+		contentPane.add(tabbedPane);
+		
+		JPanel List = new JPanel();
+		List.setLayout(new GridLayout(0,1));
+		tabbedPane.addTab("List", null, List, null);
+		
+		companies = new DataModel();
+		list = new JList<String>(companies);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list.setSelectionBackground(Color.YELLOW);
+		list.addListSelectionListener(new ListSelectionListener(){
+			public void valueChanged(ListSelectionEvent event){
+				  System.out.println(companies.getElementAt(list.getSelectedIndex()));
+			}
+		});
+		JScrollPane scrollable = new JScrollPane(list);
+		List.add(scrollable);
+		JButton add = new JButton("Add");
+		add.setBounds(111, 93, 66, 23);
+		
+		JButton remove = new JButton("Remove");
+		remove.setBounds(215, 93, 103, 23);
+		addHandler handle = new addHandler();
+		add.addActionListener(handle);
+		removeHandler handler = new removeHandler();
+		remove.addActionListener(handler);
+		JPanel p = new JPanel();
+		p.setLayout(null);
+		p.add(add);
+		p.add(remove);
+		List.add(p);
+		
+		
+		
+		
+		
+		JPanel Tree = new JPanel();
+		tabbedPane.addTab("Tree", null, Tree, null);
+		Tree.setLayout(null);
+		
+		JTree tree = new JTree();
+		tree.setModel(new DefaultTreeModel(
+			new DefaultMutableTreeNode("Animals") {
+				{
+					DefaultMutableTreeNode node_1;
+					node_1 = new DefaultMutableTreeNode("Mammals");
+						node_1.add(new DefaultMutableTreeNode("Human"));
+					getContentPane().add(node_1);
+					node_1 = new DefaultMutableTreeNode("Reptiles");
+						node_1.add(new DefaultMutableTreeNode("Lizard"));
+					getContentPane().add(node_1);
+					node_1 = new DefaultMutableTreeNode("Birds");
+						node_1.add(new DefaultMutableTreeNode("Duck"));
+					getContentPane().add(node_1);
+					node_1 = new DefaultMutableTreeNode("Insects");
+						node_1.add(new DefaultMutableTreeNode("Termite"));
+					getContentPane().add(node_1);
+					node_1 = new DefaultMutableTreeNode("Fish");
+						node_1.add(new DefaultMutableTreeNode("Eel"));
+					getContentPane().add(node_1);
+				}
+			}
+		));
+		tree.setBounds(0, 0, 419, 203);
+		Tree.add(tree);
+		
+		JPanel Table = new JPanel();
+		tabbedPane.addTab("Table", null, Table, null);
+	}
+	
+	private class addHandler implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			JFrame frame = new JFrame("Enter new company name");
+			frame.setTitle("Enter new company name");
+			String newCompany = JOptionPane.showInputDialog(frame,"What is the new company?");
+			if(newCompany != null || newCompany.length() > 4){
+				companies.addElement(newCompany);
+				System.out.println(newCompany+" added to the list of companies");
+			}
+			else{
+				System.out.println("Something went wrong");
+			}
+			
+		}
+		
+	}
+	
+	private class removeHandler implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(!list.isSelectionEmpty()){
+				companies.removeElement(companies.getElementAt(list.getSelectedIndex()));
+				System.out.println(companies.getElementAt(list.getSelectedIndex())+" Removed " + list.getSelectedIndex());
+			}
+			
+		}
+		
+	}
+}

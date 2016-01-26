@@ -1,0 +1,43 @@
+	package cs319;
+
+import java.awt.EventQueue;
+
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.border.EmptyBorder;
+
+public class Lab2Swing extends JFrame {
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Lab2Swing frame = new Lab2Swing();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Lab2Swing() {
+		
+		DataModel list = new DataModel();
+	}
+	
+	private JComponent makeListPanel(){
+		DataModel list = new DataModel();
+		JList companies = new JList(list);
+	}
+}

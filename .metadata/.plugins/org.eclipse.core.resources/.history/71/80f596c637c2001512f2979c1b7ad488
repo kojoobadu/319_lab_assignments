@@ -1,0 +1,23 @@
+package swing;
+
+import java.util.EnumSet;
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		Static member1 = new Static("Megan","Fox");
+		Static member2 = new Static("Donald","Duck");
+		Static member3 = new Static("Chalupa","Batman");
+		
+		System.out.println();
+		System.out.println(member1.getFirst());
+		System.out.println(member1.getLast());
+		System.out.println(member1.getMembers());
+		
+		
+	}
+	
+	
+}

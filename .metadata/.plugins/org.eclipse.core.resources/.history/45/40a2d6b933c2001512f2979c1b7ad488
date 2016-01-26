@@ -1,0 +1,25 @@
+package swing;
+
+import java.util.EnumSet;
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		for(enumeration myNames: enumeration.values()){
+			System.out.printf("%s\t%s\t%s\n", myNames,myNames.getDesc(),myNames.getYear());
+			
+			System.out.println("\nRange of constant\n");
+			
+			for(enumeration newSet: EnumSet.range(enumeration.ojo,enumeration.python)){
+				System.out.printf("%s\t%s\t%s\n", myNames,myNames.getDesc(),myNames.getYear());
+			}
+		}
+		
+		
+		
+	}
+	
+	
+}

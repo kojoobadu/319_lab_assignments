@@ -1,0 +1,20 @@
+package swing;
+
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		InheritanceFood[] thelist = new InheritanceFood[2];
+		cheezit c = new cheezit();
+		chicken chick = new chicken();
+		
+		thelist[0] = c;
+		thelist[1] = chick;
+		
+		for(InheritanceFood x: thelist){
+			x.noise();
+		}
+	}
+}

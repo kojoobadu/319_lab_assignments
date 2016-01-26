@@ -1,0 +1,65 @@
+	package cs319;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import javax.swing.AbstractListModel;
+
+public class DataModel extends AbstractListModel {
+	
+	private ArrayList<String> companiesList;
+	
+	
+	public DataModel(){
+		companiesList = getCompanies();
+	}
+	
+
+	public Object getElementAt(int index) {
+		return companiesList.get(index);
+	}
+
+	public int getSize() {
+		return companiesList.size();
+	}
+	
+	
+	// Method to get list of companies from companies.txt
+	public ArrayList<String> getCompanies(){
+		File file = new File("companies.txt");
+		ArrayList<String> companies = new ArrayList<String>();
+		try {
+			Scanner scan = new Scanner(file);
+			int i = 0;
+			while(scan.hasNext()){
+				companies.add(scan.next());
+				Iterator<String> itr = companies.iterator();
+				System.out.println(itr.next());
+				i++;
+			}
+		} 
+		catch(Exception e){
+			System.out.println("file not found");
+		}
+		return companies;
+	}
+	
+	//Add a new company to the arraylist and to the companies.txt file
+	public void addElement(String newCompany){
+		try{
+			FileWriter file = new FileWriter("companies.txt");
+			BufferedWriter out = new BufferedWriter(file);
+			out.write(newCompany);
+			out.close();
+		}
+		catch(Exception e){
+			System.out.println("File not found");
+		}
+	}
+	
+
+}

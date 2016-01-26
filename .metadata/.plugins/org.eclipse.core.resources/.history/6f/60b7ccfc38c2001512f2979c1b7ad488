@@ -1,0 +1,20 @@
+package swing;
+
+import java.util.EnumSet;
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		Final fini = new Final(10);
+		
+		for(int i = 0; i<5; i++){
+			fini.add();
+			System.out.printf("%s", fini.toString());
+		}
+		
+	}
+	
+	
+}

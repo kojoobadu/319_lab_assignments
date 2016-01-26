@@ -1,0 +1,17 @@
+package swing;
+
+public class time {
+	private int hours;
+	private int minutes;
+	private int seconds;
+	
+	public void setTime(int h, int min, int sec){
+		hours = ((h >= 0 && h<24) ? h : 0);
+		minutes = ((min >= 0 && min < 60) ? h : 0);
+		seconds = ((sec >= 0 && sec < 60) ? sec : 0);	
+	}
+	
+	public String toMilitary(){
+		return String.format("%02d:%02d%02d", hours, minutes, seconds);
+	}
+}

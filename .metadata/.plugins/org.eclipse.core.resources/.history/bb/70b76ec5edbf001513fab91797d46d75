@@ -1,0 +1,122 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+
+public class HelloWorldSwing2 extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					HelloWorldSwing2 frame = new HelloWorldSwing2();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public HelloWorldSwing2() {
+		setTitle("HelloWorldSwing!");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 370, 220);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblTest = new JLabel("Test:");
+		lblTest.setBounds(10, 11, 59, 17);
+		contentPane.add(lblTest);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(190, 87, 77, 18);
+		contentPane.add(label);
+		
+		textField = new JTextField();
+		textField.getDocument().addDocumentListener(new DocumentListener(){
+            
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                update();
+                
+            }
+            
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                update();
+                
+            }
+            
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                update();
+                
+            }
+            
+            public void update(){
+                label.setText(textField.getText());
+            }
+            
+        }
+                                            );
+		textField.setBounds(60, 9, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(167, 9, 69, 20);
+		comboBox.addItem("Tiny");
+		comboBox.addItem("Small");
+		comboBox.addItem("Medium");
+		comboBox.addItem("Large");
+		contentPane.add(comboBox);
+		
+		JRadioButton rdbtnPlain = new JRadioButton("Plain");
+		rdbtnPlain.setBounds(10, 35, 109, 23);
+		contentPane.add(rdbtnPlain);
+		
+		JRadioButton rdbtnBold = new JRadioButton("Bold");
+		rdbtnBold.setBounds(10, 61, 109, 23);
+		contentPane.add(rdbtnBold);
+		
+		JRadioButton rdbtnItalic = new JRadioButton("Italic");
+		rdbtnItalic.setBounds(10, 87, 109, 23);
+		contentPane.add(rdbtnItalic);
+		
+		JRadioButton rdbtnBoldItalic = new JRadioButton("Bold Italic");
+		rdbtnBoldItalic.setBounds(10, 113, 109, 23);
+		contentPane.add(rdbtnBoldItalic);
+		
+		JButton btnNewButton = new JButton("Show!\r\n");
+		btnNewButton.setBounds(75, 147, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Exit\r\n");
+		btnNewButton_1.setBounds(209, 147, 89, 23);
+		contentPane.add(btnNewButton_1);
+		
+		
+	}
+}

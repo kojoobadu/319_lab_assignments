@@ -1,4 +1,4 @@
-package swing;
+ package swing;
 
 public class tuna {
 	private String girlName;

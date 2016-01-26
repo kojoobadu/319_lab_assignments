@@ -1,0 +1,17 @@
+package swing;
+
+import java.util.EnumSet;
+
+public class apples {
+	
+	
+	public static void main(String args[]){
+		
+		chicken chic = new chicken();
+		cheezit chez = new cheezit();
+		
+		chic.eat();
+		chez.eat();
+	
+	}
+}

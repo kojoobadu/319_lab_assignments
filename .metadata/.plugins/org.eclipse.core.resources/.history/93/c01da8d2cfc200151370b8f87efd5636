@@ -1,0 +1,15 @@
+package swing;
+
+public class cheezit extends InheritanceFood {
+	
+	public void eat(int x){
+		System.out.println("I am the cheezit eat method");
+	}
+
+	@Override
+	public void eat() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

@@ -1,0 +1,17 @@
+package cs319;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class runner {
+			
+
+			  public static void main(String[] argvs){
+			  
+				  JFrame frame = new JFrame("Enter new company name");
+				  frame.setTitle("Enter new company name");
+				  String user = JOptionPane.showInputDialog(frame,"What is the new company?");
+
+			  }
+	
+}

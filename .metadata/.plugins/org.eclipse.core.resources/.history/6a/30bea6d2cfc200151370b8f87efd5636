@@ -1,0 +1,6 @@
+package swing;
+
+abstract public class InheritanceFood {
+	
+	public abstract void eat();
+}
